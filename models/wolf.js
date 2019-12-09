@@ -8,4 +8,3 @@ var Wolf = (function() {
 
     return Wolf;
 }());
-
