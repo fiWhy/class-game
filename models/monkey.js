@@ -6,6 +6,8 @@ var Monkey = (function() {
     Monkey.prototype = Object.create(Unit.prototype)
     Monkey.prototype.constructor = Monkey
 
+    
+
     return Monkey;
 }());
 
