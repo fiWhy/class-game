@@ -7,7 +7,7 @@ var CrocoTurtle = (function() {
   CrocoTurtle.prototype.constructor = CrocoTurtle;
 
   CrocoTurtle.prototype.step = function() {
-      console.log('Step');
+    console.log("Step");
   };
 
   return CrocoTurtle;
