@@ -5,6 +5,9 @@ var CrocoTurtle = (function () {
 
     CrocoTurtle.prototype = Object.create(Unit.prototype);
     CrocoTurtle.prototype.constructor = CrocoTurtle;
+    CrocoTurtle.prototype.step = function (){
+        console.log('Step');
+    };
 
     return CrocoTurtle;
 }());
