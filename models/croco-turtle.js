@@ -9,6 +9,6 @@ var CrocoTurtle = (function () {
     CrocoTurtle.prototype.step = function() {
         console.log('Step')
     }
-
+    
     return CrocoTurtle;
 }());
