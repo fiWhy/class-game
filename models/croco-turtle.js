@@ -9,5 +9,8 @@ var CrocoTurtle = (function () {
         console.log('Step');
     };
 
+    CrocoTurtle.prototype.attak = function(monster){
+        this.health -= monster.damage;
+    }
     return CrocoTurtle;
 }());

@@ -1,5 +1,9 @@
-var croco = new CrocoTurtle(50);
-var bear = new MonsterBear(2);
+var croco = new CrocoTurtle(1);
+var bear = new MonsterBear(1);
+var snac = new Snake(1);
 
-croco.attack();
-bear.attack();
+croco.attak(bear);
+croco.attak(snac);
+
+console.log(croco);
+
