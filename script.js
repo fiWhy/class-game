@@ -1,5 +1,6 @@
-var croco = new CrocoTurtle(50);
-var bear = new MonsterBear(2);
+var bg = new BattleGround(30);
 
-croco.attack();
-bear.attack();
+bg.fill([Dragon, CrocoTurtle, Monkey, Snake, MonsterBear]);
+bg.addCharacter(new Character());
+
+console.log(bg);
