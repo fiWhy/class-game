@@ -4,3 +4,5 @@ bg.fill([Dragon, CrocoTurtle, Monkey, Snake, MonsterBear]);
 bg.addCharacter(new Character());
 
 console.log(bg);
+
+var rootElement=document
