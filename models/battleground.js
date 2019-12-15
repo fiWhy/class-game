@@ -5,7 +5,7 @@ var BattleGround = (function() {
       return new Grass();
     });
   }
-
+ 
   BattleGround.prototype.fill = function(monstersArr) {
     var self = this;
     console.log(monstersArr);
