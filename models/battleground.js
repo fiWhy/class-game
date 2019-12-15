@@ -21,6 +21,6 @@ var BattleGround = (function() {
   BattleGround.prototype.addCharacter = function(character) {
     this.area[0] = character;
   }
-
+ 
   return BattleGround;
 })();
