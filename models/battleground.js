@@ -6,11 +6,11 @@ var BattleGround = (function() {
     this.area = new Array(size).fill(1).map(function() {
       return new Grass();
     });
+    this.render();
   }
 
   BattleGround.prototype.fill = function(monstersArr) {
     var self = this;
-    console.log(monstersArr);
     Array(this.amountOfMonsters)
       .fill(1)
       .forEach(function() {
@@ -33,7 +33,7 @@ var BattleGround = (function() {
 
   BattleGround.prototype.addCharacter = function(character) {
     this.area[0] = character;
-  }
+  };
 
   return BattleGround;
 })();
