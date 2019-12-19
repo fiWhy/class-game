@@ -18,6 +18,8 @@ var BattleGround = (function() {
           random(0, monstersArr.length)
         ](random(1, 3));
       });
+
+    this.render();
   };
 
   BattleGround.prototype.render = function() {
