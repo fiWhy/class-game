@@ -1,5 +1,8 @@
 var BattleGround = (function() {
   function BattleGround(element, size, amountOfMonsters) {
+    this.wrapperElement = null;
+    this.cellsElement = null;
+    this.controllsElement = null;
     this.element = element;
     this.size = size;
     this.amountOfMonsters = amountOfMonsters || size / 2;
@@ -7,6 +10,7 @@ var BattleGround = (function() {
       return new Grass();
     });
     this.render();
+    this.update();
   }
 
   BattleGround.prototype.fill = function(monstersArr) {
@@ -19,28 +23,35 @@ var BattleGround = (function() {
         ](random(1, 3));
       });
 
-    this.render();
+    this.update();
   };
 
   BattleGround.prototype.render = function() {
-    var el = document.createElement('div');
-    el.classList.add('game__wrapper');
-    el.innerHTML =
+    this.wrapper = document.createElement('div');
+    this.wrapper.classList.add('game__wrapper');
+    this.wrapper.innerHTML =
       '<div class="game__cells"></div> \
         <div class="game__controls"></div>\
       ';
 
-    var cellsElement = el.querySelector('.game__cells'),
-      controlsElement = el.querySelector('.game__controls');
+    this.cellsElement = this.wrapper.querySelector('.game__cells');
+    this.controllsElement = this.wrapper.querySelector('.game__controls');
+    this.wrapper.appendChild(this.cellsElement);
+    this.wrapper.appendChild(this.controllsElement);
+    this.element.appendChild(this.wrapper);
+  };
 
+  BattleGround.prototype.update = function() {
+    var self = this;
+    this.cellsElement.innerHTML = '';
     this.area.forEach(function(el) {
       var cell = document.createElement('div');
-      var structure = el.render();
+      var cellElement = el.render();
+
       cell.classList.add('game__cells__item');
-      cell.append(structure);
-      cellsElement.append(cell);
+      cell.appendChild(cellElement);
+      self.cellsElement.appendChild(cell);
     });
-    this.element.appendChild(el);
   };
 
   BattleGround.prototype.addCharacter = function(character) {
