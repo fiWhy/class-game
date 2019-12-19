@@ -31,13 +31,13 @@ var BattleGround = (function() {
     var cellsElement = el.querySelector('.game__cells'),
       controlsElement = el.querySelector('.game__controls');
 
-    for (let index = 0; index < this.size; index++) {
+    this.area.forEach(function(el) {
       var cell = document.createElement('div');
+      var structure = el.render();
       cell.classList.add('game__cells__item');
-
-      cellsElement.appendChild(cell);
-    }
-
+      cell.append(structure);
+      cellsElement.append(cell);
+    });
     this.element.appendChild(el);
   };
 
