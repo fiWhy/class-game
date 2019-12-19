@@ -1,5 +1,7 @@
 var BattleGround = (function() {
   function BattleGround(element, size, amountOfMonsters) {
+    this.element = element;
+    this.size = size;
     this.amountOfMonsters = amountOfMonsters || size / 2;
     this.area = new Array(size).fill(1).map(function() {
       return new Grass();
@@ -28,6 +30,15 @@ var BattleGround = (function() {
 
     var cellsElement = el.querySelector('.game__cells'),
       controlsElement = el.querySelector('.game__controls');
+
+    for (let index = 0; index < this.size; index++) {
+      var cell = document.createElement('div');
+      cell.classList.add('game__cells__item');
+
+      cellsElement.appendChild(cell);
+    }
+
+    this.element.appendChild(el);
   };
 
   BattleGround.prototype.addCharacter = function(character) {
