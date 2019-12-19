@@ -5,7 +5,7 @@ var Grass = (function() {
   }
 
   Grass.prototype.render = function() {
-    this.el.style.backgroundColor = "green";
+    this.el.style.backgroundColor = 'green';
     return this.el;
   };
   return Grass;
