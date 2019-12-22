@@ -8,8 +8,8 @@ var Unit = (function() {
     this.level = level;
   }
 
-  Unit.prototype.attack = function() {
-    console.log('Attack', this);
+  Unit.prototype.attack = function(monster) {
+    return monster.damage;
   };
 
   Unit.prototype.render = function() {
