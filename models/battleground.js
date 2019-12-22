@@ -1,5 +1,8 @@
 var BattleGround = (function() {
   function BattleGround(element, size, amountOfMonsters) {
+    this.wrapperElement = null;
+    this.cellsElement = null;
+    this.controllsElement = null;
     this.element = element;
     this.size = size;
     this.amountOfMonsters = amountOfMonsters || size / 2;
@@ -7,6 +10,7 @@ var BattleGround = (function() {
       return new Grass();
     });
     this.render();
+    this.update();
   }
 
   BattleGround.prototype.fill = function(monstersArr) {
@@ -18,6 +22,8 @@ var BattleGround = (function() {
           random(0, monstersArr.length)
         ](random(1, 3));
       });
+
+    this.update();
   };
 
   BattleGround.prototype.render = function() {
