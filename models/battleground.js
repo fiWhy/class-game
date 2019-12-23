@@ -58,5 +58,10 @@ var BattleGround = (function() {
     this.area[0] = character;
   };
 
+  BattleGround.prototype.moveCharacterLeft = function() {};
+  BattleGround.prototype.moveCharacterRight = function() {};
+  BattleGround.prototype.characterJump = function() {};
+  BattleGround.prototype.characterCrouch = function() {};
+
   return BattleGround;
 })();

@@ -3,6 +3,7 @@ var bg = new BattleGround(document.getElementById('wrapper'), 30);
 bg.fill([Dragon, CrocoTurtle, Monkey, Snake, MonsterBear]);
 bg.addCharacter(new Character());
 
+<<<<<<< HEAD
 var fnc = function(e){
     switch (e.keyCode){
         case 37:
@@ -22,3 +23,23 @@ console.log(e instanceof KeyboardEvent);
 };
 
 document.addEventListener('keydown',fnc);
+=======
+var fnc = function(e) {
+  switch (e.keyCode) {
+    case 37:
+      bg.moveCharacterLeft();
+      break;
+    case 38:
+      bg.characterJump();
+      break;
+    case 39:
+      bg.moveCharacterRight();
+      break;
+    case 40:
+      bg.characterCrouch();
+      break;
+  }
+};
+
+document.addEventListener('keydown', fnc);
+>>>>>>> 70ca96dc3816961e7e1f2d7f4eecf19c40e3c396
