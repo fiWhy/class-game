@@ -117,16 +117,19 @@ var BattleGround = (function() {
   };
 
   BattleGround.prototype.moveCharacterLeft = function() {
-    var beforeElementIndex = this.characterIndex;
-    this.area[--this.characterIndex] = this.character;
+    var beforeElementIndex = this.characterIndex,
+      newIndex = --this.characterIndex;
     this.area[beforeElementIndex] = this.beforeElement;
+    this.beforeElement = this.area[newIndex];
+    this.area[this.characterIndex] = this.character;
     this.update();
   };
   BattleGround.prototype.moveCharacterRight = function() {
-    var beforeElementIndex = this.characterIndex;
-    this.area[++this.characterIndex] = this.character;
+    var beforeElementIndex = this.characterIndex,
+      newIndex = ++this.characterIndex;
     this.area[beforeElementIndex] = this.beforeElement;
-    console.log(this.characterIndex, this.area);
+    this.beforeElement = this.area[newIndex];
+    this.area[this.characterIndex] = this.character;
     this.update();
   };
   BattleGround.prototype.characterJump = function() {};
