@@ -69,12 +69,17 @@ var BattleGround = (function() {
   BattleGround.prototype.moveCharacterRight = function() {
     this.move(this.characterIndex + 1);
   };
-  BattleGround.prototype.characterJump = function() {};
-  BattleGround.prototype.characterCrouch = function() {};
+  BattleGround.prototype.characterJump = function() {
+    this.move(this.characterIndex + 2);
+  };
+  BattleGround.prototype.characterCrouch = function() {
+    this.move(this.characterIndex + 2);
+  };
 
   BattleGround.prototype.move = function(newIndex) {
     var beforeElementIndex = this.characterIndex;
-    if (newIndex < 0) {
+    console.log(beforeElementIndex, this.beforeElement);
+    if (newIndex < 0 || newIndex > this.area.length - 1) {
       return;
     }
     this.characterIndex = newIndex;
