@@ -64,8 +64,16 @@ var BattleGround = (function() {
   };
 
   BattleGround.prototype.moveCharacterLeft = function() {
-    var beforeElementIndex = this.characterIndex,
-      newIndex = this.characterIndex - 1;
+    this.move(this.characterIndex - 1);
+  };
+  BattleGround.prototype.moveCharacterRight = function() {
+    this.move(this.characterIndex + 1);
+  };
+  BattleGround.prototype.characterJump = function() {};
+  BattleGround.prototype.characterCrouch = function() {};
+
+  BattleGround.prototype.move = function(newIndex) {
+    var beforeElementIndex = this.characterIndex;
     if (newIndex < 0) {
       return;
     }
@@ -75,20 +83,6 @@ var BattleGround = (function() {
     this.area[this.characterIndex] = this.character;
     this.update();
   };
-  BattleGround.prototype.moveCharacterRight = function() {
-    var beforeElementIndex = this.characterIndex,
-      newIndex = this.characterIndex + 1;
-    if (newIndex > this.area.length - 1) {
-      return;
-    }
-    this.characterIndex = newIndex;
-    this.area[beforeElementIndex] = this.beforeElement;
-    this.beforeElement = this.area[newIndex];
-    this.area[this.characterIndex] = this.character;
-    this.update();
-  };
-  BattleGround.prototype.characterJump = function() {};
-  BattleGround.prototype.characterCrouch = function() {};
 
   return BattleGround;
 })();
