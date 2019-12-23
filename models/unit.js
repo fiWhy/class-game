@@ -9,10 +9,13 @@ var Unit = (function() {
   }
 
   Unit.prototype.attack = function(monster) {
-    return monster.damage;
+    if (monster instanceof Unit) {
+      return this.health -= monster.damage;
+    }
+    console.error('You are not a monster!')
   };
 
-  Unit.prototype.render = function() {
+  Unit.prototype.render = function() {ß
     return this.el;
   };
 
