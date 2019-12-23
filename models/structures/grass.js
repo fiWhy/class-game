@@ -6,6 +6,7 @@ var Grass = (function() {
 
   Grass.prototype.render = function() {
     this.el.style.backgroundColor = 'green';
+    this.el.dataset.type='grass';
     return this.el;
   };
   return Grass;

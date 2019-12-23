@@ -6,6 +6,11 @@ var Character = (function () {
   Character.prototype = Object.create(Unit.prototype);
   Character.prototype.constructor = Character;
 
+  Character.prototype.render = function(){
+    this.el.style.backgroundColor = 'red';
+    this.el.dataset.type='character';
+    return this.el;
+  };
 
   return Character;
 }());

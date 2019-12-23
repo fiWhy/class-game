@@ -18,12 +18,15 @@ body,
   width: 100%;
   height: 100px;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .game__cells {
   display: flex;
   height: 100%;
-  flex-direction: row;
+  flex-basis: 100%;
+  justify-content: center;
 }
 
 .game__cells .game__cells__item {

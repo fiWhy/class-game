@@ -6,13 +6,16 @@ var Unit = (function() {
     this.damage = baseDamage + modifier;
     this.maxHealth = this.health = health + modifier;
     this.level = level;
-  }
+
+  };
 
   Unit.prototype.attack = function() {
     console.log('Attack', this);
   };
 
   Unit.prototype.render = function() {
+    this.el.style.backgroundColor = 'yellow';
+    this.el.dataset.type='monster';
     return this.el;
   };
 

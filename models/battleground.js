@@ -1,4 +1,4 @@
-var BattleGround = (function() {
+var BattleGround = (function () {
   function BattleGround(element, size, amountOfMonsters) {
     this.wrapperElement = null;
     this.cellsElement = null;
@@ -6,18 +6,24 @@ var BattleGround = (function() {
     this.element = element;
     this.size = size;
     this.amountOfMonsters = amountOfMonsters || size / 2;
-    this.area = new Array(size).fill(1).map(function() {
+    this.area = new Array(size).fill(1).map(function () {
       return new Grass();
     });
     this.render();
     this.update();
+
+
+    this.cellsElement.addEventListener('mouseover', function (e) {
+      console.log(e.target.dataset.type);
+      wrapper.querySelector('.game__controls').innerHTML = `<p>${e.target.dataset.type}</p>`
+    }, false);
   }
 
-  BattleGround.prototype.fill = function(monstersArr) {
+  BattleGround.prototype.fill = function (monstersArr) {
     var self = this;
     Array(this.amountOfMonsters)
       .fill(1)
-      .forEach(function() {
+      .forEach(function () {
         self.area[random(1, self.area.length)] = new monstersArr[
           random(0, monstersArr.length)
         ](random(1, 3));
@@ -26,7 +32,7 @@ var BattleGround = (function() {
     this.update();
   };
 
-  BattleGround.prototype.render = function() {
+  BattleGround.prototype.render = function () {
     this.wrapper = document.createElement('div');
     this.wrapper.classList.add('game__wrapper');
     this.wrapper.innerHTML =
@@ -41,10 +47,10 @@ var BattleGround = (function() {
     this.element.appendChild(this.wrapper);
   };
 
-  BattleGround.prototype.update = function() {
+  BattleGround.prototype.update = function () {
     var self = this;
     this.cellsElement.innerHTML = '';
-    this.area.forEach(function(el) {
+    this.area.forEach(function (el) {
       var cell = document.createElement('div');
       var cellElement = el.render();
 
@@ -54,8 +60,9 @@ var BattleGround = (function() {
     });
   };
 
-  BattleGround.prototype.addCharacter = function(character) {
+  BattleGround.prototype.addCharacter = function (character) {
     this.area[0] = character;
+    this.update();
   };
 
   return BattleGround;
