@@ -118,7 +118,11 @@ var BattleGround = (function() {
 
   BattleGround.prototype.moveCharacterLeft = function() {
     var beforeElementIndex = this.characterIndex,
-      newIndex = --this.characterIndex;
+      newIndex = this.characterIndex - 1;
+    if (newIndex < 0) {
+      return;
+    }
+    this.characterIndex = newIndex;
     this.area[beforeElementIndex] = this.beforeElement;
     this.beforeElement = this.area[newIndex];
     this.area[this.characterIndex] = this.character;
@@ -126,7 +130,11 @@ var BattleGround = (function() {
   };
   BattleGround.prototype.moveCharacterRight = function() {
     var beforeElementIndex = this.characterIndex,
-      newIndex = ++this.characterIndex;
+      newIndex = this.characterIndex + 1;
+    if (newIndex > this.area.length - 1) {
+      return;
+    }
+    this.characterIndex = newIndex;
     this.area[beforeElementIndex] = this.beforeElement;
     this.beforeElement = this.area[newIndex];
     this.area[this.characterIndex] = this.character;
