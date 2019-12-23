@@ -65,13 +65,15 @@ var BattleGround = (function() {
 
   BattleGround.prototype.moveCharacterLeft = function() {
     var beforeElementIndex = this.characterIndex;
-    this.area[--this.characterIndex] = this.character;
+    this.beforeElement = this.area[--this.characterIndex];
+    this.area[this.characterIndex] = this.character;
     this.area[beforeElementIndex] = this.beforeElement;
     this.update();
   };
   BattleGround.prototype.moveCharacterRight = function() {
     var beforeElementIndex = this.characterIndex;
-    this.area[++this.characterIndex] = this.character;
+    this.beforeElement = this.area[++this.characterIndex];
+    this.area[this.characterIndex] = this.character;
     this.area[beforeElementIndex] = this.beforeElement;
     console.log(this.characterIndex, this.area);
     this.update();
