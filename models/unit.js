@@ -15,7 +15,7 @@ var Unit = (function() {
     console.error('You are not a monster!')
   };
 
-  Unit.prototype.render = function() {ß
+  Unit.prototype.render = function() {
     return this.el;
   };
 
