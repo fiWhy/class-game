@@ -8,8 +8,11 @@ var Unit = (function() {
     this.level = level;
   }
 
-  Unit.prototype.attack = function() {
-    console.log('Attack', this);
+  Unit.prototype.attack = function(monster) {
+    if (monster instanceof Unit) {
+      return this.health -= monster.damage;
+    }
+    console.error('You are not a monster!')
   };
 
   Unit.prototype.render = function() {
