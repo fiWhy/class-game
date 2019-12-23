@@ -59,7 +59,6 @@ var BattleGround = (function() {
     this.element = element;
     this.size = size;
     this.characterIndex = 0;
-    this.beforeElementIndex = null;
     this.beforeElement = null;
     this.character = null;
     this.amountOfMonsters = amountOfMonsters || size / 2;
@@ -112,17 +111,22 @@ var BattleGround = (function() {
   };
 
   BattleGround.prototype.addCharacter = function(character) {
-    this.beforeElement = this.area[this.characterIndex]
+    this.beforeElement = this.area[this.characterIndex];
     this.area[this.characterIndex] = this.character = character;
     this.update();
   };
 
   BattleGround.prototype.moveCharacterLeft = function() {
+    var beforeElementIndex = this.characterIndex;
     this.area[--this.characterIndex] = this.character;
+    this.area[beforeElementIndex] = this.beforeElement;
     this.update();
   };
   BattleGround.prototype.moveCharacterRight = function() {
+    var beforeElementIndex = this.characterIndex;
     this.area[++this.characterIndex] = this.character;
+    this.area[beforeElementIndex] = this.beforeElement;
+    console.log(this.characterIndex, this.area);
     this.update();
   };
   BattleGround.prototype.characterJump = function() {};
