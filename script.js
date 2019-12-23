@@ -2,8 +2,6 @@ var bg = new BattleGround(document.getElementById('wrapper'), 30);
 
 bg.fill([Dragon, CrocoTurtle, Monkey, Snake, MonsterBear]);
 bg.addCharacter(new Character());
-
-<<<<<<< HEAD
 var fnc = function(e){
     switch (e.keyCode){
         case 37:
@@ -20,10 +18,9 @@ var fnc = function(e){
     }
     }
 console.log(e instanceof KeyboardEvent);
-};
+;
 
 document.addEventListener('keydown',fnc);
-=======
 var fnc = function(e) {
   switch (e.keyCode) {
     case 37:
@@ -42,4 +39,4 @@ var fnc = function(e) {
 };
 
 document.addEventListener('keydown', fnc);
->>>>>>> 70ca96dc3816961e7e1f2d7f4eecf19c40e3c396
+

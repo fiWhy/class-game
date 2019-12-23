@@ -55,11 +55,32 @@ var BattleGround = (function() {
   };
 
   BattleGround.prototype.addCharacter = function(character) {
+
     this.area[0] = character;
   this.update();
   };
   BattleGround.prototype.moveCharacterLeft= function(){
     this.area[--this.characterIndex]= this.character;
+    this.beforeElement = this.area[this.characterIndex];
+    this.area[this.characterIndex] = this.character = character;
+    this.update();
+  };
+
+  BattleGround.prototype.moveCharacterLeft = function() {
+    var beforeElementIndex = this.characterIndex,
+      newIndex = --this.characterIndex;
+    this.area[beforeElementIndex] = this.beforeElement;
+    this.beforeElement = this.area[newIndex];
+    this.area[this.characterIndex] = this.character;
+    this.update();
+  };
+  BattleGround.prototype.moveCharacterRight = function() {
+    var beforeElementIndex = this.characterIndex,
+      newIndex = ++this.characterIndex;
+    this.area[beforeElementIndex] = this.beforeElement;
+    this.beforeElement = this.area[newIndex];
+    this.area[this.characterIndex] = this.character;
+
     this.update();
   }
   BattleGround.prototype.moveCharacterLeft = function() {};
