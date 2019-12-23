@@ -5,6 +5,8 @@ var BattleGround = (function() {
     this.controllsElement = null;
     this.element = element;
     this.size = size;
+    this.characterPosition = 0;
+    this.character = null;
     this.amountOfMonsters = amountOfMonsters || size / 2;
     this.area = new Array(size).fill(1).map(function() {
       return new Grass();
@@ -18,7 +20,7 @@ var BattleGround = (function() {
     Array(this.amountOfMonsters)
       .fill(1)
       .forEach(function() {
-        self.area[random(1, self.area.length)] = new monstersArr[
+        self.area[random(0, self.area.length)] = new monstersArr[
           random(0, monstersArr.length)
         ](random(1, 3));
       });
@@ -55,7 +57,29 @@ var BattleGround = (function() {
   };
 
   BattleGround.prototype.addCharacter = function(character) {
-    this.area[0] = character;
+    this.beforeCellValue = this.area[this.characterPosition];
+    this.area[this.characterPosition] = this.character = character;
+    this.update();
+  };
+
+  BattleGround.prototype.moveCharacterRight = function() {
+    if (!this.area[this.characterPosition + 1]) return;
+    var beforePosition = this.characterPosition,
+      nextCellValue = this.area[beforePosition + 1];
+    this.area[++this.characterPosition] = this.character;
+    this.area[beforePosition] = this.beforeCellValue;
+    this.beforeCellValue = nextCellValue;
+    this.update();
+  };
+
+  BattleGround.prototype.moveCharacterLeft = function() {
+    if (!this.area[this.characterPosition - 1]) return;
+    var beforePosition = this.characterPosition,
+      nextCellValue = this.area[beforePosition - 1];
+    this.area[--this.characterPosition] = this.character;
+    this.area[beforePosition] = this.beforeCellValue;
+    this.beforeCellValue = nextCellValue;
+    this.update();
   };
 
   return BattleGround;
