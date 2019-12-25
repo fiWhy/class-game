@@ -55,27 +55,18 @@ var BattleGround = (function() {
 
   BattleGround.prototype.drawBattleground = function(){
     var self = this;
-    this.gameCellElement.innerHTML = '';
     this.area.forEach(function(el){
     var cell = createElementWithClass('div', 'game__cells__item');
     var cellElement = el.drawCell();
     cell.appendChild(cellElement);
-    self.cellsElement.appendChild(cell);
+    self.gameCellElement.appendChild(cell);
     })
   };
 
- /* BattleGround.prototype.update = function() {
-    var self = this;
-    this.cellsElement.innerHTML = '';
-    this.area.forEach(function(el) {
-      var cell = document.createElement('div');
-      var cellElement = el.render();
-
-      cell.classList.add('game__cells__item');
-      cell.appendChild(cellElement);
-      self.cellsElement.appendChild(cell);
-    });
-  };*/
+  BattleGround.prototype.update = function() {
+    this.gameCellElement.innerHTML = '';
+    this.drawBattleground();
+  };
 
   BattleGround.prototype.addCharacter = function(character) {
     this.beforeElement = this.area[this.characterIndex];
