@@ -1,7 +1,7 @@
 var Character = (function() {
   function Character(level) {
     Unit.call(this, 600, 1000, level);
-    this.el.style.backgroundColor = 'black';
+    this.el.style.backgroundColor = 'red';
   }
 
   Character.prototype = Object.create(Unit.prototype);
