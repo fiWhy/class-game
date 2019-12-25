@@ -29,7 +29,7 @@ var BattleGround = (function() {
     this.update();
   };
 
-  BattleGround.prototype.render = function() {
+  /*BattleGround.prototype.render = function() {
     this.wrapper = document.createElement('div');
     this.wrapper.classList.add('game__wrapper');
     this.wrapper.innerHTML =
@@ -42,9 +42,29 @@ var BattleGround = (function() {
     this.wrapper.appendChild(this.cellsElement);
     this.wrapper.appendChild(this.controllsElement);
     this.element.appendChild(this.wrapper);
+  };*/
+
+  BattleGround.prototype.drawCell = function(){
+    this.gameWrapper = createElementWithClass('div', 'game__wrapper');
+    this.gameCellElement = createElementWithClass('div', 'game__cells');
+    this.gameControlElement = createElementWithClass('div', 'game__controls');
+    this.element.appendChild(this.gameWrapper);
+    this.gameWrapper.appendChild(this.gameCellElement);
+    this.gameWrapper.appendChild(this.gameControlElement);
   };
 
-  BattleGround.prototype.update = function() {
+  BattleGround.prototype.drawBattleground = function(){
+    var self = this;
+    this.gameCellElement.innerHTML = '';
+    this.area.forEach(function(el){
+    var cell = createElementWithClass('div', 'game__cells__item');
+    var cellElement = el.drawCell();
+    cell.appendChild(cellElement);
+    self.cellsElement.appendChild(cell);
+    })
+  };
+
+ /* BattleGround.prototype.update = function() {
     var self = this;
     this.cellsElement.innerHTML = '';
     this.area.forEach(function(el) {
@@ -55,12 +75,12 @@ var BattleGround = (function() {
       cell.appendChild(cellElement);
       self.cellsElement.appendChild(cell);
     });
-  };
+  };*/
 
   BattleGround.prototype.addCharacter = function(character) {
     this.beforeElement = this.area[this.characterIndex];
     this.area[this.characterIndex] = this.character = character;
-    this.update();
+    this.drawBattleground();
   };
 
   BattleGround.prototype.moveCharacterLeft = function() {
