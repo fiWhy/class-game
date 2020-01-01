@@ -14,3 +14,9 @@ function consoleNodesRecursive(root) {
     }
   });
 }
+
+function  createElementWithClass(el, cl) {
+  var element = document.createElement(el);
+  element.classList.add(cl);
+  return element;
+}
