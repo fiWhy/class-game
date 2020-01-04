@@ -20,4 +20,9 @@ var fnc = function(e) {
   }
 };
 
-document.addEventListener('keydown', fnc);
+let cell = document.querySelectorAll('.game__cells__item');
+cell.forEach((element, index) => {
+  let eventMouseOver = element.addEventListener('mouseover', () =>
+    console.log(`You just moused over element number ${index}`)
+  );
+});
