@@ -20,6 +20,8 @@ var fnc = function(e) {
   }
 };
 
+document.addEventListener('keydown', fnc);
+
 const gameCells = document.querySelectorAll('.game__cells__item');
 gameCells.forEach((element, index) => {
   function mouseOverHandler() {
