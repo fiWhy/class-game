@@ -20,10 +20,10 @@ var fnc = function(e) {
   }
 };
 
-let cell = document.querySelectorAll('.game__cells__item');
-cell.forEach((element, index) => {
+const gameCells = document.querySelectorAll('.game__cells__item');
+gameCells.forEach((element, index) => {
   function mouseOverHandler() {
-    console.log(`You just moused over element number ${index}`);
+    console.log(`You just moused over an element number ${index}`);
   }
   element.addEventListener('mouseover', mouseOverHandler);
 });
