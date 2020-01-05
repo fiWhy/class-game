@@ -22,9 +22,8 @@ var fnc = function(e) {
 
 let cell = document.querySelectorAll('.game__cells__item');
 cell.forEach((element, index) => {
-  element.addEventListener(
-    'mouseover',
-    () => console.log(`You just moused over element number ${index}`),
-    { once: true }
-  );
+  function mouseOverHandler() {
+    console.log(`You just moused over element number ${index}`);
+  }
+  element.addEventListener('mouseover', mouseOverHandler);
 });
