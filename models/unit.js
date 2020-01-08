@@ -8,13 +8,5 @@ var Unit = (function() {
     this.level = level;
   }
 
-  Unit.prototype.attack = function() {
-    console.log('Attack', this);
-  };
-
-  Unit.prototype.render = function() {
-    return this.el;
-  };
-
   return Unit;
 })();
