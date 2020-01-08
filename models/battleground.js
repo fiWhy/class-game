@@ -47,11 +47,12 @@ var BattleGround = (function() {
   BattleGround.prototype.update = function() {
     var self = this;
     this.cellsElement.innerHTML = '';
-    this.area.forEach(function(el) {
+    this.area.forEach(function(el,index) {
       var cell = document.createElement('div');
       var cellElement = el.render();
 
       cell.classList.add('game__cells__item');
+      cell.setAttribute('data-index',index + 1);
       cell.appendChild(cellElement);
       self.cellsElement.appendChild(cell);
     });
