@@ -25,10 +25,9 @@ document.addEventListener('keydown', fnc);
 // add event listener CASE 1
 const gameCells = document.querySelectorAll('.game__cells__item');
 gameCells.forEach((element, index) => {
-  function mouseOverHandler() {
+  element.addEventListener('mouseover', () => {
     console.log(`You just moused over an element number ${index}`);
-  }
-  element.addEventListener('mouseover', mouseOverHandler);
+  });
 });
 
 // add event listener CASE2
