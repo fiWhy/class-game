@@ -21,3 +21,18 @@ var fnc = function(e) {
 };
 
 document.addEventListener('keydown', fnc);
+
+// add event listener CASE 1
+const gameCells = document.querySelectorAll('.game__cells__item');
+gameCells.forEach((element, index) => {
+  element.addEventListener('mouseover', () => {
+    console.log(`You just moused over an element number ${index}`);
+  });
+});
+
+// add event listener CASE2
+const gameWrapper = document.querySelector('.game__cells');
+gameWrapper.addEventListener('mouseover', event => {
+  let index = event.target.getAttribute('data-index');
+  console.log(`You just moused over an element number ${index}`);
+});
